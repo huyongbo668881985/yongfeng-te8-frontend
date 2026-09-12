@@ -1,0 +1,636 @@
+/* ============================================================
+   永丰特8 朋友圈集赞送酒活动 H5 —— 全局样式
+   ------------------------------------------------------------
+   说明：本文件为 2026-09-12 重建版。
+   原始 globals.css（7353B / 46 类）未留任何备份，此处按
+   app/page.tsx 实际使用的类名重写，类名与 DOM 结构严格对齐，
+   不依赖任何 CSS 框架（项目无 tailwind/postcss 配置）。
+   ============================================================ */
+
+/* ---------- 设计变量 ---------- */
+:root {
+  --red: #c8102e;
+  --red-dark: #9e0b22;
+  --red-soft: #fdeef0;
+  --gold: #e5b769;
+  --gold-soft: #fdf4e3;
+  --ink: #23262b;
+  --muted: #6b7078;
+  --hair: #e8e2da;
+  --bg: #fbf7f3;
+  --card: #ffffff;
+  --radius: 14px;
+  --shadow: 0 2px 10px rgba(35, 38, 43, 0.06);
+}
+
+/* ---------- 基础重置 ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-weight: 700;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+b {
+  color: var(--red);
+  font-weight: 700;
+}
+
+small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ---------- 页面骨架 ---------- */
+.page {
+  max-width: 480px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 14px calc(24px + env(safe-area-inset-bottom));
+  background: var(--bg);
+}
+
+/* ---------- 顶部标题 ---------- */
+.header {
+  padding: calc(22px + env(safe-area-inset-top)) 4px 16px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 21px;
+  letter-spacing: 0.5px;
+  color: var(--red-dark);
+}
+
+.header .sub {
+  margin-top: 6px;
+  font-size: 12.5px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+/* ---------- 步骤条 ---------- */
+.steps {
+  display: flex;
+  align-items: flex-start;
+  margin: 4px 0 18px;
+  padding: 14px 6px 12px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.step-item {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* 连接线：铺满整格、位于圆点垂直中线之下，靠 z-index 让圆点盖住它 */
+.step-item .line {
+  position: absolute;
+  top: 11px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background: var(--hair);
+}
+
+.step-item:first-child .line {
+  display: none;
+}
+
+.step-item .dot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #f1eeea;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.step-item.active {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.step-item.active .dot {
+  background: var(--red);
+  color: #fff;
+  box-shadow: 0 0 0 4px var(--red-soft);
+}
+
+.step-item.done {
+  color: var(--ink);
+}
+
+.step-item.done .dot {
+  background: var(--gold);
+  color: #fff;
+}
+
+.step-item.done .line,
+.step-item.active .line {
+  background: var(--gold);
+}
+
+/* ---------- 通用卡片 ---------- */
+.card {
+  margin-bottom: 14px;
+  padding: 18px 16px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card-title {
+  position: relative;
+  margin-bottom: 14px;
+  padding-left: 11px;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.card-title::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 4px;
+  height: 15px;
+  margin-top: -7.5px;
+  border-radius: 2px;
+  background: var(--red);
+}
+
+/* ---------- Step1 主视觉 ---------- */
+.hero {
+  margin-bottom: 14px;
+  padding: 26px 18px;
+  border-radius: var(--radius);
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(150deg, #c8102e 0%, #9e0b22 62%, #7d0a1c 100%);
+  box-shadow: 0 6px 18px rgba(158, 11, 34, 0.22);
+}
+
+.hero .wine {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.hero .slogan {
+  margin-top: 10px;
+  font-size: 13.5px;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+
+.hero .tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tag {
+  padding: 3px 11px;
+  border: 1px solid rgba(229, 183, 105, 0.55);
+  border-radius: 999px;
+  font-size: 11.5px;
+  color: var(--gold);
+}
+
+/* ---------- 奖品行 ---------- */
+.prize-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px dashed var(--hair);
+  font-size: 13.5px;
+}
+
+.prize-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.prize-row:first-of-type {
+  padding-top: 0;
+}
+
+.prize-row > span:first-child {
+  flex: 0 0 auto;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.prize-row > span:last-child {
+  flex: 1 1 auto;
+  text-align: right;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.level {
+  display: inline-block;
+  margin-right: 2px;
+  padding: 2px 8px;
+  border-radius: 5px;
+  background: var(--gold-soft);
+  color: #a5762a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---------- 规则列表 ---------- */
+.rule-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.85;
+  color: #3c4046;
+}
+
+.rule-list li {
+  margin-bottom: 7px;
+}
+
+.rule-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 按钮 ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #cf1636 0%, #a90d26 100%);
+  color: #fff;
+  font-size: 15.5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.btn:active {
+  transform: scale(0.985);
+  opacity: 0.9;
+}
+
+.btn:disabled {
+  background: #d8d3cd;
+  color: #fff;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn.block {
+  display: flex;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.btn-plain {
+  background: #fff;
+  color: var(--red);
+  border: 1px solid var(--red);
+  font-weight: 600;
+}
+
+.btn-plain:active {
+  background: var(--red-soft);
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 4px;
+}
+
+/* ---------- Step2 表单 ---------- */
+.form-item {
+  margin-bottom: 14px;
+}
+
+.form-item label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.form-item label b {
+  color: var(--red);
+}
+
+.form-item input,
+.form-item textarea {
+  display: block;
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--hair);
+  border-radius: 10px;
+  background: #fdfcfb;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.form-item input::placeholder,
+.form-item textarea::placeholder {
+  color: #b3ada6;
+  font-size: 13.5px;
+}
+
+.form-item input:focus,
+.form-item textarea:focus {
+  border-color: var(--red);
+  background: #fff;
+}
+
+.form-item textarea {
+  min-height: 76px;
+  resize: vertical;
+}
+
+/* 协议勾选 */
+.agree {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 4px 0 2px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.agree input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin: 2px 0 0;
+  accent-color: var(--red);
+}
+
+/* ---------- Step3 上传区 ---------- */
+.upload-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  aspect-ratio: 3 / 4;
+  padding: 10px;
+  border: 1.5px dashed #d6cfc7;
+  border-radius: 12px;
+  background: #fdfbf9;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.upload-box:active {
+  border-color: var(--red);
+  background: var(--red-soft);
+}
+
+.upload-box .plus {
+  font-size: 26px;
+  line-height: 1;
+  color: #c8c1b9;
+  font-weight: 300;
+}
+
+.upload-box .tip {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  padding: 0 4px;
+}
+
+/* 已选择：预览图铺满整框 */
+.upload-box.chosen {
+  border-style: solid;
+  border-color: var(--gold);
+  background: #000;
+}
+
+.upload-box .preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upload-box .re-take {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  z-index: 1;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* ---------- 加载态 ---------- */
+.loading-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 34px 12px;
+  text-align: center;
+}
+
+.spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid var(--red-soft);
+  border-top-color: var(--red);
+  border-radius: 50%;
+  animation: yft8-spin 0.85s linear infinite;
+}
+
+.loading-box .txt {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+@keyframes yft8-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 2s;
+  }
+}
+
+/* ---------- 结果区 ---------- */
+.result-big {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 6px 16px;
+  text-align: center;
+}
+
+.result-big .icon {
+  font-size: 44px;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.result-big h2 {
+  margin-bottom: 12px;
+  font-size: 19px;
+  color: var(--ink);
+}
+
+.result-big .desc {
+  font-size: 13.5px;
+  line-height: 1.95;
+  color: var(--muted);
+}
+
+/* 提示条 */
+.banner {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--gold-soft);
+  color: #8a6320;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.banner.error {
+  background: var(--red-soft);
+  color: var(--red-dark);
+}
+
+.error {
+  color: var(--red);
+}
+
+/* 兼容旧类名 */
+.warn {
+  color: #b06d10;
+}
+
+/* ---------- 页脚 ---------- */
+.footer-note {
+  padding: 18px 8px 6px;
+  text-align: center;
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: #a7a19a;
+}
+
+/* 窄屏（≤340px）收紧间距，避免奖品行换行错乱 */
+@media (max-width: 340px) {
+  .page {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .prize-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .prize-row > span:last-child {
+    text-align: left;
+  }
+
+  .step-item {
+    font-size: 10.5px;
+  }
+
+  .upload-box .tip {
+    font-size: 11px;
+  }
+}
