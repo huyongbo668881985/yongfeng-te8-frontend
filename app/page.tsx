@@ -230,7 +230,7 @@ export default function Home() {
   const renderHeader = () => (
     <header className="header">
       <h1>🍶 永丰特8 · 好礼派送</h1>
-      <div className="sub">42度 · 纯粮酿造 · 北京二锅头</div>
+      <div className="sub">纯粮酿造 · 北京二锅头</div>
     </header>
   );
 
@@ -257,12 +257,11 @@ export default function Home() {
   const renderStep1 = () => (
     <>
       <div className="hero">
-        <div className="wine">永丰特8 · 二锅头</div>
-        <div className="slogan">分享美好时刻 · 好礼等你领</div>
+        <div className="wine">永丰特8 北京二锅头</div>
+        <div className="slogan">喝好酒 · 选特级</div>
         <div className="tags">
-          <span className="tag">42度</span>
           <span className="tag">纯粮酿造</span>
-          <span className="tag">北京二锅头</span>
+          <span className="tag">国标特级</span>
         </div>
       </div>
 
