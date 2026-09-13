@@ -229,7 +229,7 @@ export default function Home() {
   // —— 各步骤组件 ——
   const renderHeader = () => (
     <header className="header">
-      <h1>🍶 永丰特8 集赞送酒</h1>
+      <h1>🍶 永丰特8 · 好礼派送</h1>
       <div className="sub">42度 · 纯粮酿造 · 北京二锅头</div>
     </header>
   );
@@ -258,7 +258,7 @@ export default function Home() {
     <>
       <div className="hero">
         <div className="wine">永丰特8 · 二锅头</div>
-        <div className="slogan">朋友圈集赞 · 免费送酒</div>
+        <div className="slogan">分享美好时刻 · 好礼等你领</div>
         <div className="tags">
           <span className="tag">42度</span>
           <span className="tag">纯粮酿造</span>
@@ -267,10 +267,10 @@ export default function Home() {
       </div>
 
       <div className="card">
-        <div className="card-title">🎁 活动奖励</div>
+        <div className="card-title">🎁 惊喜好礼</div>
         <div className="prize-row">
           <span>
-            <span className="level">A 产品</span> · 集满 <b>10</b> 个赞
+            <span className="level">A 产品</span>
           </span>
           <span>
             价值15元 · 42度168ml · 永丰特8 一瓶
@@ -280,7 +280,7 @@ export default function Home() {
         </div>
         <div className="prize-row">
           <span>
-            <span className="level">B 产品</span> · 集满 <b>20</b> 个赞
+            <span className="level">B 产品</span>
           </span>
           <span>
             价值35元 · 42度500ml · 永丰特8 一瓶
@@ -291,17 +291,17 @@ export default function Home() {
       </div>
 
       <div className="card">
-        <div className="card-title">📋 活动规则</div>
+        <div className="card-title">📋 参与说明</div>
         <ol className="rule-list">
           <li>
-            朋友圈文案需体现产品特色；集满10个赞送A产品（价值15元42度168ml永丰特8一瓶）、集满20个赞送B产品（价值35元42度500ml永丰特8一瓶）
+            在朋友圈分享含永丰特8产品特色的动态，即有机会获得心意好礼
           </li>
           <li>
-            需上传两张截图：朋友圈点赞详情页（含文案+完整点赞列表）＋微信个人资料页（需显示微信号）
+            需上传两张截图：朋友圈动态详情页（含文案+完整互动列表）＋微信个人资料页（需显示微信号）
           </li>
           <li>每微信号每手机号仅限一次，重复提交无效</li>
-          <li>AI 即时审核出结果；有异议可申请人工审核，通过后另行通知</li>
-          <li>PS造假、集赞后删朋友圈取消资格</li>
+          <li>系统将自动审核，如有异议可申请人工复核，通过后另行通知</li>
+          <li>内容如有不实（如PS造假、审核后删除朋友圈）将取消资格</li>
           <li>信息仅用于奖品配送</li>
         </ol>
       </div>
