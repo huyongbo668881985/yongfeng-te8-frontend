@@ -358,7 +358,7 @@ export default function Home() {
       </label>
 
       <button className="btn block" disabled={checking} onClick={submitInfo}>
-        {checking ? "查重中…" : "下一步：上传截图"}
+        {checking ? "正在提交，请稍候…" : "下一步：上传截图"}
       </button>
     </div>
   );
